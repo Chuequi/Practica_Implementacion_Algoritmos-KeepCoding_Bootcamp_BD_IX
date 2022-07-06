@@ -1,0 +1,12 @@
+requests==2.25.0
+uvicorn==0.12.2
+fastapi==0.61.2
+h5py==2.10.0
+scikit-learn==0.23.2
+scipy==1.4.1
+tensorflow==2.1.0
+loguru==0.5.3
+gensim==3.6.0
+fsspec==0.8.4
+gcsfs==0.7.1
+numpy==1.19.5
