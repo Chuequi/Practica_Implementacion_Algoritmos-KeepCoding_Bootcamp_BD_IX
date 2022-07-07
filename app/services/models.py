@@ -38,16 +38,7 @@ class SentimentAnalysisModel:
         self.tokenizer = pickle.load(tf.io.gfile.GFile(tokenizer_path, mode="rb"))
 
     def _decode_sentiment(self, score: float, include_neutral=True) -> str:
-        if include_neutral:
-            label = Sentiment.NEUTRAL.value
-            if score <= SENTIMENT_THRESHOLD[0]:
-                label = Sentiment.NEGATIVE.value
-            elif score >= SENTIMENT_THRESHOLD[1]:
-                label = Sentiment.POSITIVE.value
-
-            return label
-        else:
-            return Sentiment.NEGATIVE.value if score < 0.5 else Sentiment.POSITIVE.value
+        return Sentiment.NEGATIVE.value if score < 0.5 else Sentiment.POSITIVE.value
 
     def _pre_process(self, payload: TextPayload) -> str:
         logger.debug("Pre-processing payload.")
